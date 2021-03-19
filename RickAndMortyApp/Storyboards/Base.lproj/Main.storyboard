@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Start View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="StartViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="OZc-ly-8pf">
+                                <rect key="frame" x="72.5" y="313.5" width="269" height="269"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OZc-ly-8pf" secondAttribute="height" multiplier="1:1" id="IyE-IA-BAH"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OZc-ly-8pf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6Jm-pc-uxq"/>
+                            <constraint firstItem="OZc-ly-8pf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9GH-23-bmD"/>
+                            <constraint firstItem="OZc-ly-8pf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="Gop-iW-pNj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="OZc-ly-8pf" id="Gkc-49-7Ac"/>
+                        <segue destination="7oG-D7-8nn" kind="show" identifier="showCharacters" id="yLl-0U-J3d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13.043478260869566" y="68.973214285714278"/>
+        </scene>
+        <!--Characters-->
+        <scene sceneID="0lz-nl-vgD">
+            <objects>
+                <viewController id="CXD-Pi-fKe" customClass="CharactersListViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Sp-6p-idT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="orm-kP-v4V">
+                                <rect key="frame" x="15" y="120" width="384" height="32"/>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                <segments>
+                                    <segment title="A-Z"/>
+                                    <segment title="Z-A"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlAction:" destination="CXD-Pi-fKe" eventType="valueChanged" id="P0l-Le-ntC"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2hV-t2-cJb">
+                                <rect key="frame" x="0.0" y="163" width="414" height="679"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="CXD-Pi-fKe" id="TFN-ah-9mi"/>
+                                    <outlet property="delegate" destination="CXD-Pi-fKe" id="PL7-GC-R9Z"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rhh-bh-2Fz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2hV-t2-cJb" firstAttribute="top" secondItem="orm-kP-v4V" secondAttribute="bottom" constant="12" id="81e-FS-guS"/>
+                            <constraint firstItem="orm-kP-v4V" firstAttribute="top" secondItem="Rhh-bh-2Fz" secondAttribute="top" constant="12" id="A4q-td-xMo"/>
+                            <constraint firstItem="2hV-t2-cJb" firstAttribute="leading" secondItem="Rhh-bh-2Fz" secondAttribute="leading" id="IsV-WP-bRC"/>
+                            <constraint firstItem="orm-kP-v4V" firstAttribute="leading" secondItem="Rhh-bh-2Fz" secondAttribute="leading" constant="15" id="JqV-Y8-Owc"/>
+                            <constraint firstAttribute="bottom" secondItem="2hV-t2-cJb" secondAttribute="bottom" id="YTe-ph-weG"/>
+                            <constraint firstItem="Rhh-bh-2Fz" firstAttribute="right" secondItem="orm-kP-v4V" secondAttribute="right" constant="15" id="hpi-2y-9vl"/>
+                            <constraint firstItem="Rhh-bh-2Fz" firstAttribute="trailing" secondItem="2hV-t2-cJb" secondAttribute="trailing" id="ro3-AQ-YqT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Characters" id="Vcc-Fh-bAs">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="T1L-c7-iKn">
+                            <connections>
+                                <action selector="backAction:" destination="CXD-Pi-fKe" id="N1f-mo-CA9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="2hV-t2-cJb" id="2U1-Hf-ucH"/>
+                        <segue destination="f4D-mT-JPS" kind="show" identifier="showDetail" id="l66-h4-hqF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U4F-3D-OYJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1675" y="69"/>
+        </scene>
+        <!--Detail Table View Controller-->
+        <scene sceneID="Xsm-9J-udv">
+            <objects>
+                <tableViewController id="f4D-mT-JPS" customClass="DetailTableViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="5hb-UO-M4U">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="f4D-mT-JPS" id="Hax-xO-dI0"/>
+                            <outlet property="delegate" destination="f4D-mT-JPS" id="xHN-dO-G9t"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="mVH-HU-GGd"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rA1-Yg-B9b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2498.5507246376815" y="68.973214285714278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7XK-y3-DPc">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" id="7oG-D7-8nn" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Cgw-nL-pH6"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="x7c-kl-Cwe">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CXD-Pi-fKe" kind="relationship" relationship="rootViewController" id="JCI-8y-jJg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kEF-ac-Eip" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="846" y="69"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="image" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
